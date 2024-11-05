@@ -18,6 +18,7 @@ import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.Shoote
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.ShooterPID;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.ShooterTurret;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Utils.MMIMU;
+import org.firstinspires.ftc.teamcode.SubSystems.DriveTrain;
 import org.firstinspires.ftc.teamcode.Utils.AllianceColor;
 import org.firstinspires.ftc.teamcode.Utils.AllianceSide;
 import org.firstinspires.ftc.teamcode.Utils.OpModeType;
@@ -44,7 +45,7 @@ public class MMSystems {
     //Subsystems
     //For example:
     public MMDriveTrain mmDriveTrain;
-
+    public DriveTrain driveTrain;
     public Shooter shooter;
     public ShooterIntake shooterIntake;
     public ShooterPID shooterPID;
