@@ -18,7 +18,7 @@ public class TeleopDrive extends MMTeleOp {
     MMRobot robot = MMRobot.getInstance();
 
     public TeleopDrive(){
-        super(AllianceColor.RED);
+        super(OpModeType.NonCompetition.EXPERIMENTING);
 
     }
 
@@ -26,12 +26,7 @@ public class TeleopDrive extends MMTeleOp {
     public void onInit() {
 
         MMRobot.getInstance().mmSystems.initDriveTrain();
-        MMRobot.getInstance().mmSystems.initIntakeRoller();
-        MMRobot.getInstance().mmSystems.initLinearIntake();
-        MMRobot.getInstance().mmSystems.initElevator();
-        MMRobot.getInstance().mmSystems.initIntakeArm();
-        MMRobot.getInstance().mmSystems.initScoringArm();
-        MMRobot.getInstance().mmSystems.initClaw();
+
 
 
         addRunnableOnInit(
