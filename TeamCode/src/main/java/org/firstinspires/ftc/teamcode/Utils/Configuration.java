@@ -42,6 +42,11 @@ public class Configuration {
 
 
 
+    public static final int ANGLE_ROLLER = 0;
+    public static final String ROLLER = "roller";
+
+
+
 
 
     public static final int SHOOTER1 = 0;
