@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.TeleOps;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Libraries.MMLib.MMTeleOp;
+import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.TeleOps.Comp.MMTeleOp;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Utils.MMBattery;
 import org.firstinspires.ftc.teamcode.Utils.OpModeType;
 

@@ -43,9 +43,9 @@ public class Configuration {
 
 
     public static final int ANGLE_ROLLER = 0;
-    public static final String ROLLER = "roller";
+    public static final String ROLLER = "roller"; // 1
 
-
+    public static final int CLAW = 2;
 
 
 
@@ -69,4 +69,7 @@ public class Configuration {
     public static final int ARM_ANGLE_MOTOR = 3;
 
 
+    public static final int ELEVATOR_LEFT = 8;
+    public static final int ELEVATOR_RIGHT = 8;
+    public static final int ELEVATOR_ENCODER = ELEVATOR_LEFT;
 }
