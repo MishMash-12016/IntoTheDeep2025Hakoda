@@ -45,12 +45,13 @@ public class DriveTrain extends SubsystemBase {
         odo.setOffsets(0, 0);
         odo.setEncoderResolution(MMPinPoint.GoBildaOdometryPods.goBILDA_SWINGARM_POD);
         odo.setEncoderDirections(MMPinPoint.EncoderDirection.FORWARD, MMPinPoint.EncoderDirection.FORWARD);
+        odo.resetPosAndIMU();
 
     }
 
     public DriveTrain(double lastAngle){
         this();
-        mmRobot.mmSystems.imu.setYaw(lastAngle);
+        odo.setYawScalar(lastAngle);
     }
 
     private double[] joystickToPower(double x, double y, double yaw) {
@@ -90,15 +91,15 @@ public class DriveTrain extends SubsystemBase {
 
     public void fieldOrientedDrive(double x, double y, double yaw) {
         Vector2d joystickDirection = new Vector2d(x, y);
-        Vector2d fieldOrientedVector = joystickDirection.rotateBy(-mmRobot.mmSystems.imu.getYawInDegrees());
+        Vector2d fieldOrientedVector = joystickDirection.rotateBy(odo.getYawScalar());
         drive(fieldOrientedVector.getX(), fieldOrientedVector.getY(), yaw);
     }
 
     public void updateTelemetry(double[] power) {
-        FtcDashboard.getInstance().getTelemetry().addData("frontLeft", power[0]);
-        FtcDashboard.getInstance().getTelemetry().addData("backLeft", power[1]);
+        FtcDashboard.getInstance().getTelemetry().addData("frontLeft",  power[0]);
+        FtcDashboard.getInstance().getTelemetry().addData("backLeft",   power[1]);
         FtcDashboard.getInstance().getTelemetry().addData("frontRight", power[2]);
-        FtcDashboard.getInstance().getTelemetry().addData("backRight", power[3]);
+        FtcDashboard.getInstance().getTelemetry().addData("backRight",  power[3]);
         FtcDashboard.getInstance().getTelemetry().update();
     }
 
