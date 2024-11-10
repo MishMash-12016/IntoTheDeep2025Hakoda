@@ -1,13 +1,12 @@
 package org.firstinspires.ftc.teamcode.Teleops;
 
-import com.arcrobotics.ftclib.gamepad.GamepadKeys;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.TeleOps.Comp.MMTeleOp;
-import org.firstinspires.ftc.teamcode.Libraries.MMLib.PID.MMPIDCommand;
+import org.firstinspires.ftc.teamcode.Libraries.MMLib.MMOpMode;
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.Utils.OpModeType;
-
-public class TuningOpMode extends MMTeleOp {
+@TeleOp
+public class TuningOpMode extends MMOpMode {
     public TuningOpMode() {
         super(OpModeType.NonCompetition.EXPERIMENTING_NO_EXPANSION);
     }
@@ -16,14 +15,14 @@ public class TuningOpMode extends MMTeleOp {
     public void onInit() {
 
         MMRobot.getInstance().mmSystems.initDriveTrain();
-
-        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
-                new MMPIDCommand(MMRobot.getInstance().mmSystems.arm,30)
-        );
-
-        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.B).whenPressed(
-                new MMPIDCommand(MMRobot.getInstance().mmSystems.arm,15)
-        );
+//
+//        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
+//                new MMPIDCommand(MMRobot.getInstance().mmSystems.arm,30)
+//        );
+//
+//        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.B).whenPressed(
+//                new MMPIDCommand(MMRobot.getInstance().mmSystems.arm,15)
+//        );
 
     }
 
@@ -33,9 +32,11 @@ public class TuningOpMode extends MMTeleOp {
     public void run() {
         super.run();
 
-        MMRobot.getInstance().mmSystems.roller.setSpeed(gamepad1.right_trigger);
-        MMRobot.getInstance().mmSystems.roller.setAngleRoller(gamepad1.left_trigger);
-
-        MMRobot.getInstance().mmSystems.claw.setPosition(gamepad1.left_trigger);
+        telemetry.addData("heading",MMRobot.getInstance().mmSystems.driveTrain.localizer.getPosition().getHeading());
+        telemetry.update();
+//        MMRobot.getInstance().mmSystems.roller.setSpeed(gamepad1.right_trigger);
+//        MMRobot.getInstance().mmSystems.roller.setAngleRoller(gamepad1.left_trigger);
+//
+//        MMRobot.getInstance().mmSystems.claw.setPosition(gamepad1.left_trigger);
     }
 }

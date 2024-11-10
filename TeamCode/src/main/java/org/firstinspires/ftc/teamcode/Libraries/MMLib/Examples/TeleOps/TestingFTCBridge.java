@@ -6,13 +6,12 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Libraries.CuttlefishFTCBridge.src.devices.CuttleMotor;
-import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.TeleOps.Comp.MMTeleOp;
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.Utils.OpModeType;
 
 @Disabled
 @TeleOp
-public class TestingFTCBridge extends MMTeleOp {
+public class TestingFTCBridge extends org.firstinspires.ftc.teamcode.Libraries.MMLib.MMOpMode {
 
     MMRobot mmRobot = MMRobot.getInstance();
 

@@ -28,7 +28,7 @@ public class DriveTrain extends SubsystemBase {
     private final CuttleMotor motorFL;
     private final CuttleMotor motorBL;
     private final CuttleMotor motorBR;
-    MMPinPoint odo;
+    public MMPinPoint localizer;
 
     public DriveTrain() {
         super(); //register this subsystem, in order to schedule default command later on.
@@ -37,21 +37,21 @@ public class DriveTrain extends SubsystemBase {
         motorBL = new CuttleMotor(mmRobot.mmSystems.controlHub, Configuration.DRIVE_TRAIN_BACK_LEFT);
         motorFR = new CuttleMotor(mmRobot.mmSystems.controlHub, Configuration.DRIVE_TRAIN_FRONT_RIGHT);
         motorBR = new CuttleMotor(mmRobot.mmSystems.controlHub, Configuration.DRIVE_TRAIN_BACK_RIGHT);
-        odo = MMRobot.getInstance().mmSystems.hardwareMap.get(MMPinPoint.class,"odo");
+        localizer = MMRobot.getInstance().mmSystems.hardwareMap.get(MMPinPoint.class,"localizer");
 
         //TODO: reverse motors as needed
         motorFL.setDirection(Direction.REVERSE);
         motorBL.setDirection(Direction.REVERSE);
-        odo.setOffsets(0, 0);
-        odo.setEncoderResolution(MMPinPoint.GoBildaOdometryPods.goBILDA_SWINGARM_POD);
-        odo.setEncoderDirections(MMPinPoint.EncoderDirection.FORWARD, MMPinPoint.EncoderDirection.FORWARD);
-        odo.resetPosAndIMU();
+        localizer.setOffsets(0, 0);
+        localizer.setEncoderResolution(MMPinPoint.GoBildaOdometryPods.goBILDA_SWINGARM_POD);
+        localizer.setEncoderDirections(MMPinPoint.EncoderDirection.FORWARD, MMPinPoint.EncoderDirection.FORWARD);
+        localizer.resetPosAndIMU();
 
     }
 
     public DriveTrain(double lastAngle){
         this();
-        odo.setYawScalar(lastAngle);
+        localizer.setYawScalar(lastAngle);
     }
 
     private double[] joystickToPower(double x, double y, double yaw) {
@@ -91,7 +91,7 @@ public class DriveTrain extends SubsystemBase {
 
     public void fieldOrientedDrive(double x, double y, double yaw) {
         Vector2d joystickDirection = new Vector2d(x, y);
-        Vector2d fieldOrientedVector = joystickDirection.rotateBy(odo.getYawScalar());
+        Vector2d fieldOrientedVector = joystickDirection.rotateBy(localizer.getYawScalar());
         drive(fieldOrientedVector.getX(), fieldOrientedVector.getY(), yaw);
     }
 
@@ -104,4 +104,3 @@ public class DriveTrain extends SubsystemBase {
     }
 
 }
-//TODO: tune PinPoint

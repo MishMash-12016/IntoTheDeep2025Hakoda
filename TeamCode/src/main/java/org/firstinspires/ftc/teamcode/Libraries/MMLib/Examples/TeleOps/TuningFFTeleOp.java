@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.TeleOps;
 import com.arcrobotics.ftclib.gamepad.GamepadKeys;
 
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.ShooterPID;
-import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.TeleOps.Comp.MMTeleOp;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.PID.MMTuningFFCommand;
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.Utils.OpModeType;
@@ -12,7 +11,7 @@ import org.firstinspires.ftc.teamcode.Utils.OpModeType;
  * obviously checking for friction in a spinwheel is pretty dumb,
  * but this is an overall example of how to use the TuningFFCommand
  */
-public class TuningFFTeleOp extends MMTeleOp {
+public class TuningFFTeleOp extends org.firstinspires.ftc.teamcode.Libraries.MMLib.MMOpMode {
 
     MMRobot mmRobot = MMRobot.getInstance(); //btw this is line is just to reduce code
 

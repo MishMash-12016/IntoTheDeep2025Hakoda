@@ -47,12 +47,11 @@ public class MMSystems {
 
 
     //Subsystems
-    //For example:
     public MMDriveTrain mmDriveTrain;
     public DriveTrain driveTrain;
-    public Roller roller = new Roller();
-    public Claw claw = new Claw();
-    public Arm arm = new Arm();
+    public Roller roller;
+    public Claw claw;
+    public Arm arm;
 
     // exemple
     public Shooter shooter;

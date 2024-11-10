@@ -2,14 +2,12 @@ package org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.ElevatorPIDExamp
 
 import com.arcrobotics.ftclib.gamepad.GamepadKeys;
 
-import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.TeleOps.Comp.MMTeleOp;
-
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.PID.MMPIDCommand;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.PID.MMTuningFFCommand;
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.Utils.OpModeType;
 
-public class TeleOpUsageExample extends MMTeleOp {
+public class TeleOpUsageExample extends org.firstinspires.ftc.teamcode.Libraries.MMLib.MMOpMode {
 
 
     public TeleOpUsageExample() {
