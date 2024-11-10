@@ -9,6 +9,10 @@ import org.firstinspires.ftc.teamcode.Utils.Configuration;
 
 public class Arm extends MMPIDSubsystem {
 
+    // TODO: tune this value
+    public final double HIGH_BASKET = 40;
+    public final double LOW_BASCET = 30;
+
     CuttleMotor motor1;
     CuttleMotor motor2;
     CuttleMotor motor3;
