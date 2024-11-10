@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+import org.firstinspires.ftc.teamcode.Commands.DriveCommand;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.DriveTrain.Commands.MMDriveCommand;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.DriveTrain.Subsystem.MMDriveTrain;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.ElevatorPIDExample.ExampleElevator;
@@ -18,6 +19,7 @@ import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.Shoote
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.ShooterPID;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.ShooterTurret;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Utils.MMIMU;
+import org.firstinspires.ftc.teamcode.SubSystems.Arm;
 import org.firstinspires.ftc.teamcode.SubSystems.Claw;
 import org.firstinspires.ftc.teamcode.SubSystems.DriveTrain;
 import org.firstinspires.ftc.teamcode.SubSystems.Roller;
@@ -48,8 +50,11 @@ public class MMSystems {
     //For example:
     public MMDriveTrain mmDriveTrain;
     public DriveTrain driveTrain;
-    public Roller roller;
-    public Claw claw;
+    public Roller roller = new Roller();
+    public Claw claw = new Claw();
+    public Arm arm = new Arm();
+
+    // exemple
     public Shooter shooter;
     public ShooterIntake shooterIntake;
     public ShooterPID shooterPID;
@@ -58,9 +63,9 @@ public class MMSystems {
 
 
     public void initDriveTrain() {
-        mmDriveTrain = new MMDriveTrain();
-        mmDriveTrain.setDefaultCommand(
-                new MMDriveCommand()
+        driveTrain = new DriveTrain();
+        driveTrain.setDefaultCommand(
+                new DriveCommand()
         );
     }
 
