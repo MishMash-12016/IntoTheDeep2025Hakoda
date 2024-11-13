@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode.Teleops;
 
+import com.arcrobotics.ftclib.gamepad.GamepadKeys;
+
+import org.firstinspires.ftc.teamcode.CommandGroup.ScoreAndBackTo_0;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.MMOpMode;
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.Utils.OpModeType;
@@ -21,6 +24,12 @@ public class ManualDrive extends MMOpMode {
 //        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.B).whenPressed(
 //                new MMPIDCommand(MMRobot.getInstance().mmSystems.arm,MMRobot.getInstance().mmSystems.arm.LOW_BASCET)
 //        );
+//
+//        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.A).whenPressed(
+//                new ScoreAndBackTo_0()
+//        );
+
+
 
     }
 
