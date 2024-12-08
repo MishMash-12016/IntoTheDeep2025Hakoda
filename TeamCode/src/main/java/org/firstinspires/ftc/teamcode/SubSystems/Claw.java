@@ -20,7 +20,7 @@ public class Claw extends SubsystemBase {
     CuttleServo servo;
 
     public Claw(){
-        servo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.CLAW);
+        servo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKE_CLAW);
     }
 
     public void setPosition(double position){

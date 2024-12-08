@@ -22,7 +22,6 @@ import org.firstinspires.ftc.teamcode.Libraries.MMLib.Utils.MMIMU;
 import org.firstinspires.ftc.teamcode.SubSystems.Arm;
 import org.firstinspires.ftc.teamcode.SubSystems.Claw;
 import org.firstinspires.ftc.teamcode.SubSystems.DriveTrain;
-import org.firstinspires.ftc.teamcode.SubSystems.Roller;
 import org.firstinspires.ftc.teamcode.Utils.AllianceColor;
 import org.firstinspires.ftc.teamcode.Utils.AllianceSide;
 import org.firstinspires.ftc.teamcode.Utils.OpModeType;
@@ -49,7 +48,6 @@ public class MMSystems {
     //Subsystems
     public MMDriveTrain mmDriveTrain;
     public DriveTrain driveTrain;
-    public Roller roller;
     public Claw claw;
     public Arm arm;
 
