@@ -39,6 +39,9 @@ public class Configuration {
     public static final int SCORING_CLAW = 2;
     public static final int ANGLE_SCORING_CLAW = 2;
 
+    public static final int LINEAR_INTAKE_RIGHT = 2;
+    public static final int LINEAR_INTAKE_LEFT = 2;
+
     /**EXPANSION_HUB*/
 
     public static final int ARM_MOTOR1 = 0;

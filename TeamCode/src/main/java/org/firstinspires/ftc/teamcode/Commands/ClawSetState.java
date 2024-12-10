@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.SubSystems.ScoringClaw;
 public class ClawSetState extends InstantCommand {
 
     public ClawSetState(ScoringClaw.State state){
-        super(()-> MMRobot.getInstance().mmSystems.claw.setState(state.position));
+        super(()-> MMRobot.getInstance().mmSystems.scoringClaw.setState(state.position));
     }
 
 }
