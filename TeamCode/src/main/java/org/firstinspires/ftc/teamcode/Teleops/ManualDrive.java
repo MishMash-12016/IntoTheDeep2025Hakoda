@@ -14,18 +14,6 @@ public class ManualDrive extends MMOpMode {
     public void onInit() {
         MMRobot.getInstance().mmSystems.initDriveTrain();
 
-//        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
-//                new MMPIDCommand(MMRobot.getInstance().mmSystems.arm,MMRobot.getInstance().mmSystems.arm.HIGH_BASKET)
-//        );
-//
-//        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.B).whenPressed(
-//                new MMPIDCommand(MMRobot.getInstance().mmSystems.arm,MMRobot.getInstance().mmSystems.arm.LOW_BASCET)
-//        );
-//
-//        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.A).whenPressed(
-//                new ScoreAndBackTo_0()
-//        );
-
 
 
     }
