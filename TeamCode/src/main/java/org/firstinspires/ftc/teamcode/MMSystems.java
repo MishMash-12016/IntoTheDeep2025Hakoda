@@ -65,6 +65,10 @@ public class MMSystems {
         );
     }
 
+    public void initIntakeClaw(){
+        intakeClaw = new IntakeClaw();
+    }
+
     public void initShooterPID() {
         shooterPID = new ShooterPID();
     }
