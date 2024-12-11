@@ -18,6 +18,7 @@ import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.Shoote
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.ShooterPID;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.ShooterTurret;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Utils.MMIMU;
+import org.firstinspires.ftc.teamcode.SubSystems.Elevator;
 import org.firstinspires.ftc.teamcode.SubSystems.IntakeClaw;
 import org.firstinspires.ftc.teamcode.SubSystems.ScoringClaw;
 import org.firstinspires.ftc.teamcode.SubSystems.DriveTrain;
@@ -49,6 +50,7 @@ public class MMSystems {
     public DriveTrain driveTrain;
     public ScoringClaw scoringClaw;
     public IntakeClaw intakeClaw;
+    public Elevator elevator;
 
     // exemple
     public Shooter shooter;
@@ -67,6 +69,10 @@ public class MMSystems {
 
     public void initIntakeClaw(){
         intakeClaw = new IntakeClaw();
+    }
+
+    public void initElevator(){
+        elevator = new Elevator();
     }
 
     public void initShooterPID() {

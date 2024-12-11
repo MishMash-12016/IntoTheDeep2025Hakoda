@@ -43,17 +43,13 @@ public class Configuration {
     public static final int LINEAR_INTAKE_LEFT = 2;
 
     /**EXPANSION_HUB*/
-
-    public static final int ARM_MOTOR1 = 0;
-    public static final int ARM_MOTOR2 = 1;
-    public static final int ARM_MOTOR3 = 2;
-    public static final int ARM_ANGLE_MOTOR = 3;
+    public static final int ELEVATOR_RIGHT = 8;
+    public static final int ELEVATOR_LEFT = 8;
 
 
     /**From here irrelevant(example)*/
 
-    public static final int ELEVATOR_LEFT = 8;
-    public static final int ELEVATOR_RIGHT = 8;
+
     public static final int ELEVATOR_ENCODER = ELEVATOR_LEFT;
     public static final int SHOOTER1 = 0;
     public static final int SHOOTER2 = 1;
