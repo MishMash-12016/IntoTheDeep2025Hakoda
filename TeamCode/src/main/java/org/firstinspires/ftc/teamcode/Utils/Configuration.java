@@ -33,26 +33,29 @@ public class Configuration {
     public static final String PERPENDICULAR = AUTO_DRIVE_TRAIN_BACK_RIGHT;
     public static final String PARALLEL = AUTO_DRIVE_TRAIN_BACK_RIGHT; //TODO: choose the right motor, preferable port 0,3
 
-    public static final int ANGLE_ROLLER = 0;
-    public static final String ROLLER = "roller"; // 1
-    public static final int CLAW = 2;
+    public static final int ANGLE_INTAKE_CLAW = 0;
+    public static final int INTAKE_CLAW = 2;
+
+    public static final int SCORING_CLAW = 2;
+    public static final int ANGLE_SCORING_CLAW = 2;
+
+    public static final int LINEAR_INTAKE_RIGHT = 2;
+    public static final int LINEAR_INTAKE_LEFT = 2;
 
     /**EXPANSION_HUB*/
-
-    public static final int ARM_MOTOR1 = 0;
-    public static final int ARM_MOTOR2 = 1;
-    public static final int ARM_MOTOR3 = 2;
-    public static final int ARM_ANGLE_MOTOR = 3;
+    public static final int ELEVATOR_RIGHT = 8;
+    public static final int ELEVATOR_LEFT = 8;
 
 
     /**From here irrelevant(example)*/
 
-    public static final int ELEVATOR_LEFT = 8;
-    public static final int ELEVATOR_RIGHT = 8;
+
     public static final int ELEVATOR_ENCODER = ELEVATOR_LEFT;
     public static final int SHOOTER1 = 0;
     public static final int SHOOTER2 = 1;
     public static final int SHOOTER_INTAKE = 2;
     public static final int SHOOTER_TURRET = 3;
     public static final int SHOOTER_SERVO = 0;
+
+
 }

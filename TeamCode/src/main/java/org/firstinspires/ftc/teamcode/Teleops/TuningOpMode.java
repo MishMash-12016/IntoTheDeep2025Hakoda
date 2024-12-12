@@ -15,14 +15,7 @@ public class TuningOpMode extends MMOpMode {
     public void onInit() {
 
         MMRobot.getInstance().mmSystems.initDriveTrain();
-//
-//        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
-//                new MMPIDCommand(MMRobot.getInstance().mmSystems.arm,30)
-//        );
-//
-//        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.B).whenPressed(
-//                new MMPIDCommand(MMRobot.getInstance().mmSystems.arm,15)
-//        );
+
 
     }
 
@@ -32,11 +25,6 @@ public class TuningOpMode extends MMOpMode {
     public void run() {
         super.run();
 
-        telemetry.addData("heading",MMRobot.getInstance().mmSystems.driveTrain.localizer.getPosition().getHeading());
-        telemetry.update();
-//        MMRobot.getInstance().mmSystems.roller.setSpeed(gamepad1.right_trigger);
-//        MMRobot.getInstance().mmSystems.roller.setAngleRoller(gamepad1.left_trigger);
-//
-//        MMRobot.getInstance().mmSystems.claw.setPosition(gamepad1.left_trigger);
+
     }
 }

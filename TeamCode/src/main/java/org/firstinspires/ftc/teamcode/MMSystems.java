@@ -9,7 +9,6 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 import org.firstinspires.ftc.teamcode.Commands.DriveCommand;
-import org.firstinspires.ftc.teamcode.Libraries.MMLib.DriveTrain.Commands.MMDriveCommand;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.DriveTrain.Subsystem.MMDriveTrain;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.ElevatorPIDExample.ExampleElevator;
 import org.firstinspires.ftc.teamcode.Libraries.CuttlefishFTCBridge.src.devices.CuttleRevHub;
@@ -19,10 +18,10 @@ import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.Shoote
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.ShooterPID;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.ShooterTurret;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Utils.MMIMU;
-import org.firstinspires.ftc.teamcode.SubSystems.Arm;
-import org.firstinspires.ftc.teamcode.SubSystems.Claw;
+import org.firstinspires.ftc.teamcode.SubSystems.Elevator;
+import org.firstinspires.ftc.teamcode.SubSystems.IntakeClaw;
+import org.firstinspires.ftc.teamcode.SubSystems.ScoringClaw;
 import org.firstinspires.ftc.teamcode.SubSystems.DriveTrain;
-import org.firstinspires.ftc.teamcode.SubSystems.Roller;
 import org.firstinspires.ftc.teamcode.Utils.AllianceColor;
 import org.firstinspires.ftc.teamcode.Utils.AllianceSide;
 import org.firstinspires.ftc.teamcode.Utils.OpModeType;
@@ -49,9 +48,9 @@ public class MMSystems {
     //Subsystems
     public MMDriveTrain mmDriveTrain;
     public DriveTrain driveTrain;
-    public Roller roller;
-    public Claw claw;
-    public Arm arm;
+    public ScoringClaw scoringClaw;
+    public IntakeClaw intakeClaw;
+    public Elevator elevator;
 
     // exemple
     public Shooter shooter;
@@ -66,6 +65,14 @@ public class MMSystems {
         driveTrain.setDefaultCommand(
                 new DriveCommand()
         );
+    }
+
+    public void initIntakeClaw(){
+        intakeClaw = new IntakeClaw();
+    }
+
+    public void initElevator(){
+        elevator = new Elevator();
     }
 
     public void initShooterPID() {
