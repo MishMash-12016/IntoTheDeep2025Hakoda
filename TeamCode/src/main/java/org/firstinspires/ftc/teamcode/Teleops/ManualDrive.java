@@ -24,8 +24,6 @@ public class ManualDrive extends MMOpMode {
     public void run() {
         super.run();
 //        MMRobot.getInstance().mmSystems.expansionHub.pullBulkData();
-        MMRobot.getInstance().mmSystems.intakeClaw.setAngle(gamepad1.left_trigger);
-        telemetry.addData("meow",MMRobot.getInstance().mmSystems.intakeClaw.angleClaw.getPosition());
-        telemetry.update();
+
     }
 }

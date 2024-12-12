@@ -19,7 +19,10 @@ import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.Shoote
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Examples.Subsystems.ShooterTurret;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.Utils.MMIMU;
 import org.firstinspires.ftc.teamcode.SubSystems.Elevator;
+import org.firstinspires.ftc.teamcode.SubSystems.IntakeArm;
 import org.firstinspires.ftc.teamcode.SubSystems.IntakeClaw;
+import org.firstinspires.ftc.teamcode.SubSystems.LinearIntake;
+import org.firstinspires.ftc.teamcode.SubSystems.ScoringArm;
 import org.firstinspires.ftc.teamcode.SubSystems.ScoringClaw;
 import org.firstinspires.ftc.teamcode.SubSystems.DriveTrain;
 import org.firstinspires.ftc.teamcode.Utils.AllianceColor;
@@ -49,7 +52,10 @@ public class MMSystems {
     public MMDriveTrain mmDriveTrain;
     public DriveTrain driveTrain;
     public ScoringClaw scoringClaw;
+    public ScoringArm scoringArm;
     public IntakeClaw intakeClaw;
+    public IntakeArm intakeArm;
+    public LinearIntake linearIntake;
     public Elevator elevator;
 
     // exemple

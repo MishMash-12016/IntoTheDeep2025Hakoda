@@ -6,10 +6,10 @@ import org.firstinspires.ftc.teamcode.Libraries.CuttlefishFTCBridge.src.devices.
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.Utils.Configuration;
 
-public class ScoringClaw extends SubsystemBase {
+public class IntakeClaw extends SubsystemBase {
 
     public enum State {
-        CLOSE(1), OPEN(0.3);
+        CLOSE(0), OPEN(1);
         public double position;
 
         State(double position){
@@ -20,9 +20,9 @@ public class ScoringClaw extends SubsystemBase {
     CuttleServo clawServo;
     CuttleServo clawAngel;
 
-    public ScoringClaw(){
-        clawServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.SCORING_CLAW);
-        clawAngel = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_SCORING_CLAW);
+    public IntakeClaw(){
+        clawServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKE_CLAW);
+        clawAngel = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_INTAKE_CLAW);
     }
 
     public void setState(double position){
