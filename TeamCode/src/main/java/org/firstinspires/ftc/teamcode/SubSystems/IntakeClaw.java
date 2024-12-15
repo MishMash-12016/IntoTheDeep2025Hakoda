@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.Utils.Configuration;
 public class IntakeClaw extends SubsystemBase {
 
     public enum State {
-        CLOSE(0), OPEN(1);
+        CLOSE(0), OPEN(0.3);
         public double position;
 
         State(double position){
@@ -17,17 +17,16 @@ public class IntakeClaw extends SubsystemBase {
         }
     }
 
-    CuttleServo clawServo;
-    CuttleServo clawAngel;
+    public CuttleServo angleClaw;
+    public CuttleServo claw;
 
     public IntakeClaw(){
-        clawServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKE_CLAW);
-        clawAngel = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_INTAKE_CLAW);
+        angleClaw = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_INTAKE_CLAW);
+        claw = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub,Configuration.INTAKE_CLAW);
     }
 
     public void setState(double position){
-
-        clawServo.setPosition(position);
+        angleClaw.setPosition(position);
     }
 
     public void setAngle(double angle){
@@ -35,9 +34,11 @@ public class IntakeClaw extends SubsystemBase {
     }
 
     public double getClawPosition() {
-        return clawServo.getPosition();
+        return claw.getPosition();
     }
+
     public double getAnglePosition() {
-        return clawAngel.getPosition();
+        return angleClaw.getPosition();
     }
+
 }
