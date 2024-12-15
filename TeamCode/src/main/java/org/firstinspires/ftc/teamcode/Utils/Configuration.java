@@ -34,7 +34,7 @@ public class Configuration {
     public static final String PARALLEL = AUTO_DRIVE_TRAIN_BACK_RIGHT; //TODO: choose the right motor, preferable port 0,3
 
     public static final int ANGLE_INTAKE_CLAW = 0;
-    public static final int INTAKE_CLAW = 2;
+    public static final int INTAKE_CLAW = 3;
 
     public static final int SCORING_CLAW = 2;
     public static final int ANGLE_SCORING_CLAW = 2;

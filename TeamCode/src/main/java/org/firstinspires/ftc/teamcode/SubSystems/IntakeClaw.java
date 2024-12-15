@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.Utils.Configuration;
 public class IntakeClaw extends SubsystemBase {
 
     public enum State {
-        CLOSE(0), OPEN(0.3);
+        CLOSE(0), OPEN(0.7);
         public double position;
 
         State(double position){
@@ -26,12 +26,10 @@ public class IntakeClaw extends SubsystemBase {
     }
 
     public void setState(double position){
-        angleClaw.setPosition(position);
+        claw.setPosition(position);
     }
 
-    public void setAngle(double angle){
-        clawAngel.setPosition(angle);
-    }
+    public void setAngle(double angle){angleClaw.setPosition(angle);}
 
     public double getClawPosition() {
         return claw.getPosition();

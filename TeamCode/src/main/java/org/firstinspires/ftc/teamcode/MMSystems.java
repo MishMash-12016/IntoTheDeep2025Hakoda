@@ -76,6 +76,18 @@ public class MMSystems {
     public void initIntakeClaw(){
         intakeClaw = new IntakeClaw();
     }
+    public void initScoringClaw(){
+        scoringClaw = new ScoringClaw();
+    }
+    public void initLinearIntake(){
+        linearIntake = new LinearIntake();
+    }
+    public void initIntakeArm(){
+        intakeArm = new IntakeArm();
+    }
+    public void initScoringArm(){
+        scoringArm = new ScoringArm();
+    }
 
     public void initElevator(){
         elevator = new Elevator();
