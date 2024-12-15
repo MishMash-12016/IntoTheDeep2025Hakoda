@@ -31,7 +31,6 @@ public class IntakeClaw extends SubsystemBase {
     }
 
     public void setAngle(double angle){
-
         clawAngel.setPosition(angle);
     }
 

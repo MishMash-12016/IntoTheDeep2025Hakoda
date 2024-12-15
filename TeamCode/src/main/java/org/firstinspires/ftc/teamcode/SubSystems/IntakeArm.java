@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.Utils.Configuration;
 
 public class IntakeArm extends SubsystemBase {
     public enum State {
-        CLOSE(0), OPEN(1);
+        IN(0), COLLECT(1);
         public double position;
 
         State(double position) {
