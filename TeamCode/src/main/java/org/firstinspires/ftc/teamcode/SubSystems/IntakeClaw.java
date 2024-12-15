@@ -29,8 +29,8 @@ public class IntakeClaw extends SubsystemBase {
         angleClaw.setPosition(position);
     }
 
-    public void setAngle(double position){
-        angleClaw.setPosition(position);
+    public void setAngle(double angle){
+        clawAngel.setPosition(angle);
     }
 
     public double getClawPosition() {
