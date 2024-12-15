@@ -26,11 +26,19 @@ public class ScoringClaw extends SubsystemBase {
     }
 
     public void setState(double position){
+
         clawServo.setPosition(position);
     }
 
     public void setAngle(double angle){
+
         clawAngel.setPosition(angle);
     }
 
+    public double getClawPosition() {
+        return clawServo.getPosition();
+    }
+    public double getAnglePosition() {
+        return clawAngel.getPosition();
+    }
 }

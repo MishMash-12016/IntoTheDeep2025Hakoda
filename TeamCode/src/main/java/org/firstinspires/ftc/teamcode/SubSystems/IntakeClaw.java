@@ -25,12 +25,20 @@ public class IntakeClaw extends SubsystemBase {
         claw = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub,Configuration.INTAKE_CLAW);
     }
 
-    public void setPosition(double position){
-        claw.setPosition(position);
+    public void setState(double position){
+        angleClaw.setPosition(position);
     }
 
     public void setAngle(double position){
         angleClaw.setPosition(position);
+    }
+
+    public double getClawPosition() {
+        return claw.getPosition();
+    }
+
+    public double getAnglePosition() {
+        return angleClaw.getPosition();
     }
 
 }

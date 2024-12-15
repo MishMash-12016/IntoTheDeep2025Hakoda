@@ -6,17 +6,25 @@ import org.firstinspires.ftc.teamcode.Libraries.CuttlefishFTCBridge.src.devices.
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.Utils.Configuration;
 
-public class LinearIntake extends SubsystemBase {
+public class IntakeArm extends SubsystemBase {
+    public enum State {
+        CLOSE(0), OPEN(1);
+        public double position;
+
+        State(double position) {
+            this.position = position;
+        }
+    }
 
     CuttleServo rightServo;
     CuttleServo leftServo;
 
-    public LinearIntake(){
-        rightServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.LINEAR_INTAKE_RIGHT);
-        leftServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.LINEAR_INTAKE_LEFT);
+    public IntakeArm() {
+        rightServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKE_CLAW);
+        leftServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_INTAKE_CLAW);
     }
 
-    public void setPosition(double position){
+    public void setState(double position) {
         rightServo.setPosition(position);
         leftServo.setPosition(1-position);
     }

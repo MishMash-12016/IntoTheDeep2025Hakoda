@@ -5,9 +5,9 @@ import com.arcrobotics.ftclib.command.InstantCommand;
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.SubSystems.ScoringClaw;
 
-public class ClawSetState extends InstantCommand {
+public class ScoringClawSetState extends InstantCommand {
 
-    public ClawSetState(ScoringClaw.State state){
+    public ScoringClawSetState(ScoringClaw.State state){
         super(()-> MMRobot.getInstance().mmSystems.scoringClaw.setState(state.position));
     }
 
