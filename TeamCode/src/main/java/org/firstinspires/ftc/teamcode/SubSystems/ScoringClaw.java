@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.Utils.Configuration;
 public class ScoringClaw extends SubsystemBase {
 
     public enum State {
-        CLOSE(1), OPEN(0.3);
+        CLOSE(1), OPEN(0.5);
         public double position;
 
         State(double position){
@@ -21,8 +21,8 @@ public class ScoringClaw extends SubsystemBase {
     CuttleServo clawAngel;
 
     public ScoringClaw(){
-        clawServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.SCORING_CLAW);
-        clawAngel = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_SCORING_CLAW);
+        clawServo = new CuttleServo(MMRobot.getInstance().mmSystems.expansionHub, Configuration.SCORING_CLAW);
+        clawAngel = new CuttleServo(MMRobot.getInstance().mmSystems.expansionHub, Configuration.ANGLE_SCORING_CLAW);
     }
 
     public void setState(double position){

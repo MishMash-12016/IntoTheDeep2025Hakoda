@@ -7,30 +7,36 @@ import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.Utils.Configuration;
 
 public class IntakeArm extends SubsystemBase {
-    public enum State {
-        IN(0), COLLECT(1);
-        public double position;
-
-        State(double position) {
-            this.position = position;
-        }
-    }
 
     CuttleServo rightServo;
     CuttleServo leftServo;
 
+    public enum State {
+        IN(0.8), COLLECT(0.3);
+
+        private final double position;
+
+        State(double position) {
+            this.position = position;
+        }
+
+        public double getPosition() {
+            return position;
+        }
+    }
+
     public IntakeArm() {
-        rightServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKE_CLAW);
-        leftServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_INTAKE_CLAW);
+        rightServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKE_ARM_RIGHT);
+        leftServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKE_ARM_LEFT);
     }
 
     public void setState(double position) {
-        rightServo.setPosition(position);
-        leftServo.setPosition(1-position);
+        rightServo.setPosition(1-position);
+        leftServo.setPosition(position);
     }
 
     public double getPosition() {
-        return rightServo.getPosition();
+        return leftServo.getPosition();
     }
 
 }

@@ -8,7 +8,9 @@ import org.firstinspires.ftc.teamcode.SubSystems.IntakeClaw;
 
 public class IntakeArmSetState extends InstantCommand {
     public IntakeArmSetState(IntakeArm.State state){
-        super(()-> MMRobot.getInstance().mmSystems.intakeArm.setState(state.position));
-
+        super(
+                ()-> MMRobot.getInstance().mmSystems.intakeArm.setState(state.getPosition()),
+                MMRobot.getInstance().mmSystems.intakeArm
+        );
     }
 }
