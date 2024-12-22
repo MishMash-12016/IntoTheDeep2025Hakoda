@@ -91,7 +91,7 @@ public class DriveTrain extends SubsystemBase {
 
     public void fieldOrientedDrive(double x, double y, double yaw) {
         Vector2d joystickDirection = new Vector2d(x, y);
-        Vector2d fieldOrientedVector = joystickDirection.rotateBy(MMRobot.getInstance().mmSystems.driveTrain.localizer.getHeading());
+        Vector2d fieldOrientedVector = joystickDirection.rotateBy(-Math.toDegrees(MMRobot.getInstance().mmSystems.driveTrain.localizer.getHeading()));
         drive(fieldOrientedVector.getX(), fieldOrientedVector.getY(), yaw);
     }
 
