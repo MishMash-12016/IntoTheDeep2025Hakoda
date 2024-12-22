@@ -11,6 +11,7 @@ import org.firstinspires.ftc.teamcode.Commands.IntakeClawSetState;
 import org.firstinspires.ftc.teamcode.Commands.ScoringArmSetState;
 import org.firstinspires.ftc.teamcode.Commands.ScoringClawSetState;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.MMOpMode;
+import org.firstinspires.ftc.teamcode.Libraries.MMLib.PID.MMPIDCommand;
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.SubSystems.IntakeArm;
 import org.firstinspires.ftc.teamcode.SubSystems.IntakeClaw;
@@ -47,6 +48,9 @@ public class TuningOpMode extends MMOpMode {
         MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
                 new ScoringClawSetState(ScoringClaw.State.OPEN)
         );
+        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.DPAD_DOWN).whenPressed(
+                new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator, 10)
+        );
     }
 
 
@@ -55,7 +59,7 @@ public class TuningOpMode extends MMOpMode {
     public void run() {
         super.run();
         MMRobot.getInstance().mmSystems.expansionHub.pullBulkData();
-        telemetry.addData("meow: ",MMRobot.getInstance().mmSystems.scoringClaw.getClawPosition());
+
         telemetry.update();
     }
 }
