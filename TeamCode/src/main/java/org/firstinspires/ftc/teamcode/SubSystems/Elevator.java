@@ -17,17 +17,18 @@ public class Elevator extends MMPIDSubsystem {
 
     public CuttleMotor motorRight;
     public CuttleMotor motorLeft;
+    public CuttleMotor motorMidd;
     public CuttleEncoder motorLeftEncoder;
 
-    final double TICKS_PER_REV = 0;
-    final double GIR_RATIO = 0;
-    final double LEVELS = 0;
-    final double SPROCKET_PERIMETER = 0;
+    final double TICKS_PER_REV = 384.5;
+    final double GIR_RATIO = 1;
+    final double LEVELS = 4;
+    final double SPROCKET_PERIMETER = 6.56592;
 
-    public static double kP = 0;
-    public static double kI = 0;
+    public static double kP = 0.11;
+    public static double kI = 0.01;
     public static double kD = 0;
-    public static double TOLERANCE = 0;
+    public static double TOLERANCE = 2;
 
     double ticksOfset = 0;
 
@@ -37,7 +38,7 @@ public class Elevator extends MMPIDSubsystem {
         super(kP,kI,kD,TOLERANCE);
         this.motorRight = new CuttleMotor(robot.mmSystems.expansionHub, Configuration.ELEVATOR_RIGHT);
         this.motorLeft = new CuttleMotor(robot.mmSystems.expansionHub, Configuration.ELEVATOR_LEFT);
-        this.motorLeft.setDirection(Direction.REVERSE);
+        this.motorMidd = new CuttleMotor(robot.mmSystems.expansionHub, Configuration.ELEVATOR_MIDD);
 //        this.motorLeft.setZeroPowerBehaviour(DcMotor.ZeroPowerBehavior.BRAKE);
 //        this.motorRight.setZeroPowerBehaviour(DcMotor.ZeroPowerBehavior.BRAKE);
         this.motorLeftEncoder = new CuttleEncoder(robot.mmSystems.expansionHub,Configuration.ELEVATOR_ENCODER,TICKS_PER_REV);
@@ -45,7 +46,7 @@ public class Elevator extends MMPIDSubsystem {
     }
 
     public double getHeight(){
-        return -1*((getTicks() / TICKS_PER_REV) * SPROCKET_PERIMETER * LEVELS / GIR_RATIO) ;
+        return ((getTicks() / TICKS_PER_REV) * SPROCKET_PERIMETER * LEVELS / GIR_RATIO) ;
     }
 
     @Override
@@ -69,6 +70,7 @@ public class Elevator extends MMPIDSubsystem {
     public void setPower(Double power) {
         motorLeft.setPower(power);
         motorRight.setPower(power);
+        motorMidd.setPower(power);
     }
 
     @Override
@@ -77,8 +79,8 @@ public class Elevator extends MMPIDSubsystem {
     }
 
     public void updateToDashboard(){
-        FtcDashboard.getInstance().getTelemetry().addData("motorLeftPower", motorLeft.getPower());
-        FtcDashboard.getInstance().getTelemetry().addData("motorRightPower",motorRight.getPower());
+//        FtcDashboard.getInstance().getTelemetry().addData("motorLeftPower", motorLeft.getPower());
+//        FtcDashboard.getInstance().getTelemetry().addData("motorRightPower",motorRight.getPower());
         FtcDashboard.getInstance().getTelemetry().addData("height",getHeight());
         FtcDashboard.getInstance().getTelemetry().addData("target", getPidController().getSetPoint());
         FtcDashboard.getInstance().getTelemetry().update();

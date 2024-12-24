@@ -13,6 +13,7 @@ import org.firstinspires.ftc.teamcode.Commands.ScoringClawSetState;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.MMOpMode;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.PID.MMPIDCommand;
 import org.firstinspires.ftc.teamcode.MMRobot;
+import org.firstinspires.ftc.teamcode.SubSystems.Elevator;
 import org.firstinspires.ftc.teamcode.SubSystems.IntakeArm;
 import org.firstinspires.ftc.teamcode.SubSystems.IntakeClaw;
 import org.firstinspires.ftc.teamcode.SubSystems.ScoringArm;
@@ -35,22 +36,10 @@ public class TuningOpMode extends MMOpMode {
         MMRobot.getInstance().mmSystems.initScoringArm();
         MMRobot.getInstance().mmSystems.initElevator();
 
-
-        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.A).whenPressed(
-                new IntakeArmSetState(IntakeArm.State.COLLECT)
-        );
-        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.B).whenPressed(
-                new IntakeArmSetState(IntakeArm.State.IN)
-        );
         MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.X).whenPressed(
-                new ScoringClawSetState(ScoringClaw.State.CLOSE)
+                new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator, 15)
         );
-        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
-                new ScoringClawSetState(ScoringClaw.State.OPEN)
-        );
-        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.DPAD_DOWN).whenPressed(
-                new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator, 10)
-        );
+
     }
 
 
@@ -59,10 +48,13 @@ public class TuningOpMode extends MMOpMode {
     public void run() {
         super.run();
         MMRobot.getInstance().mmSystems.expansionHub.pullBulkData();
-
+        MMRobot.getInstance().mmSystems.elevator.updateToDashboard();
+        telemetry.addData("high",MMRobot.getInstance().mmSystems.elevator.getTicks());
+//        MMRobot.getInstance().mmSystems.scoringArm.setState(gamepad1.left_trigger);
         telemetry.update();
     }
 }
+
 
 
 //intake V

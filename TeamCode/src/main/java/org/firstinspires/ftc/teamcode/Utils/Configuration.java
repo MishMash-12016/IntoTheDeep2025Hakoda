@@ -36,11 +36,6 @@ public class Configuration {
     public static final int ANGLE_INTAKE_CLAW = 0;
     public static final int INTAKE_CLAW = 3;
 
-    public static final int ANGLE_SCORING_CLAW = 1;
-
-    public static final int SCORING_ARM_RIGHT = 2;
-    public static final int SCORING_ARM_LEFT = 3;
-
     public static final int LINEAR_INTAKE_RIGHT = 2;
     public static final int LINEAR_INTAKE_LEFT = 1;
 
@@ -48,17 +43,22 @@ public class Configuration {
     public static final int INTAKE_ARM_LEFT = 5;
 
     /**EXPANSION_HUB*/
-    public static final int ELEVATOR_RIGHT = 0;
-    public static final int ELEVATOR_LEFT = 1;
-    public static final int ELEVATOR_MIDD = 2;
-    public static final int SCORING_CLAW = 5;
+    public static final int ELEVATOR_LEFT = 0;
+    public static final int ELEVATOR_MIDD = 1;
+    public static final int ELEVATOR_RIGHT = 2;
+    public static final int ELEVATOR_ENCODER = ELEVATOR_RIGHT;
+
+    public static final int SCORING_CLAW = 0;
+    public static final int ANGLE_SCORING_CLAW = 1;
+    public static final int SCORING_ARM_RIGHT = 4;
+    public static final int SCORING_ARM_LEFT = 5;
+
 
 
 
     /**From here irrelevant(example)*/
 
 
-    public static final int ELEVATOR_ENCODER = ELEVATOR_LEFT;
     public static final int SHOOTER1 = 0;
     public static final int SHOOTER2 = 1;
     public static final int SHOOTER_INTAKE = 2;
