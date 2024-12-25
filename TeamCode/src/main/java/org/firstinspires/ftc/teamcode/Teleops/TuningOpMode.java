@@ -28,13 +28,13 @@ public class TuningOpMode extends MMOpMode {
     @Override
     public void onInit() {
 
-//        MMRobot.getInstance().mmSystems.initDriveTrain();
+        MMRobot.getInstance().mmSystems.initDriveTrain();
+        MMRobot.getInstance().mmSystems.initIntakeArm();
         MMRobot.getInstance().mmSystems.initIntakeClaw();
         MMRobot.getInstance().mmSystems.initLinearIntake();
-        MMRobot.getInstance().mmSystems.initScoringClaw();
-        MMRobot.getInstance().mmSystems.initIntakeArm();
-        MMRobot.getInstance().mmSystems.initScoringArm();
         MMRobot.getInstance().mmSystems.initElevator();
+        MMRobot.getInstance().mmSystems.initScoringArm();
+        MMRobot.getInstance().mmSystems.initScoringClaw();
 
         MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.X).whenPressed(
                 new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator, 15)
@@ -43,19 +43,12 @@ public class TuningOpMode extends MMOpMode {
     }
 
 
-
     @Override
     public void run() {
         super.run();
         MMRobot.getInstance().mmSystems.expansionHub.pullBulkData();
         MMRobot.getInstance().mmSystems.elevator.updateToDashboard();
-        telemetry.addData("high",MMRobot.getInstance().mmSystems.elevator.getTicks());
-//        MMRobot.getInstance().mmSystems.scoringArm.setState(gamepad1.left_trigger);
+
         telemetry.update();
     }
 }
-
-
-
-//intake V
-//scoring V

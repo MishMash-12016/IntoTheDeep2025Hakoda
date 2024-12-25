@@ -12,7 +12,7 @@ public class IntakeArm extends SubsystemBase {
     CuttleServo leftServo;
 
     public enum State {
-        IN(0.8), COLLECT(0.3);
+        IN(0.8), COLLECT(0.3), MID(0.55);
 
         private final double position;
 
