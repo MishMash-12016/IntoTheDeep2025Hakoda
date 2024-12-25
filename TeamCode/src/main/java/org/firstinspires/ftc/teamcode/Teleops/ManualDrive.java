@@ -4,6 +4,7 @@ import com.arcrobotics.ftclib.gamepad.GamepadKeys;
 import com.arcrobotics.ftclib.command.button.Trigger;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.CommandGroups.ElevatorBackTo_0;
 import org.firstinspires.ftc.teamcode.CommandGroups.Intake;
 import org.firstinspires.ftc.teamcode.CommandGroups.Scoring;
 import org.firstinspires.ftc.teamcode.Commands.IntakeArmSetState;
@@ -52,8 +53,12 @@ public class ManualDrive extends MMOpMode {
                 new ScoringArmSetState(ScoringArm.State.SCORING)
         );
 
-        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
+        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.DPAD_UP).whenPressed(
                 new Scoring(30)
+        );
+
+        MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.DPAD_DOWN).whenPressed(
+                new ElevatorBackTo_0()
         );
 
     }
@@ -61,7 +66,6 @@ public class ManualDrive extends MMOpMode {
     @Override
     public void run() {
         super.run();
-
 
         telemetry.addData("pos",MMRobot.getInstance().mmSystems.scoringArm.getPosition());
         MMRobot.getInstance().mmSystems.driveTrain.localizer.update();
