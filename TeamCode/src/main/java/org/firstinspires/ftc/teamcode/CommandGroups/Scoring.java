@@ -14,7 +14,7 @@ public class Scoring extends SequentialCommandGroup {
     public Scoring(double high){
         addCommands(
         new ScoringClawSetState(ScoringClaw.State.CLOSE),
-        new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator, 0),
+        new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator, high),
         new ScoringArmSetState(ScoringArm.State.SCORING)
         );
     }

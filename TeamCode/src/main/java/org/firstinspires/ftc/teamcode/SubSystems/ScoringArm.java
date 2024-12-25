@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.Utils.Configuration;
 
 public class ScoringArm extends SubsystemBase {
     public enum State {
-        IN(0), SCORING(0.6);
+        IN(0.7), SCORING(0), MIDD(0.5);
         public double position;
 
         State(double position) {
