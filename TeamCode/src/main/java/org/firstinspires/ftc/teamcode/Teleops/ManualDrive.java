@@ -28,18 +28,26 @@ public class ManualDrive extends MMOpMode {
     @Override
     public void onInit() {
         MMRobot.getInstance().mmSystems.initDriveTrain();
-//        MMRobot.getInstance().mmSystems.initIntakeArm();
-//        MMRobot.getInstance().mmSystems.initIntakeClaw();
-//        MMRobot.getInstance().mmSystems.initLinearIntake();
+        MMRobot.getInstance().mmSystems.initIntakeArm();
+        MMRobot.getInstance().mmSystems.initIntakeClaw();
+        MMRobot.getInstance().mmSystems.initLinearIntake();
         MMRobot.getInstance().mmSystems.initElevator();
         MMRobot.getInstance().mmSystems.initScoringArm();
         MMRobot.getInstance().mmSystems.initScoringClaw();
 
         addCommandsOnRun(
-//                new LinearIntakeSetPosition(0),
+                new LinearIntakeSetPosition(0),
 //                new IntakeArmSetState(IntakeArm.State.IN),
                 new ScoringArmSetState(ScoringArm.State.IN)
         );
+
+
+//        Trigger leftTriggerCondition = new Trigger(
+//                () -> MMRobot.getInstance().mmSystems.gamepadEx1.getTrigger(GamepadKeys.Trigger.LEFT_TRIGGER) > 0.1
+//        );
+//        leftTriggerCondition.whenActive(
+//                new Intake(leftTriggerCondition)
+//        );
 
         MMRobot.getInstance().mmSystems.gamepadEx1.getGamepadButton(GamepadKeys.Button.A).whenPressed(
                 new ScoringArmSetState(ScoringArm.State.IN)
@@ -67,7 +75,9 @@ public class ManualDrive extends MMOpMode {
     public void run() {
         super.run();
 
-        telemetry.addData("pos",MMRobot.getInstance().mmSystems.scoringArm.getPosition());
+        MMRobot.getInstance().mmSystems.intakeArm.setState(gamepad1.left_trigger + 0.2);
+
+        telemetry.addData("pos",MMRobot.getInstance().mmSystems.intakeArm.getPosition());
         MMRobot.getInstance().mmSystems.driveTrain.localizer.update();
         MMRobot.getInstance().mmSystems.expansionHub.pullBulkData();
         telemetry.update();
