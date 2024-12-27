@@ -87,6 +87,7 @@ public class CloseRed extends MMOpMode {
                 new ScoringClawSetState(ScoringClaw.State.CLOSE),
                 new WaitCommand(2000),
                 new ActionCommand(ScoreSample.build(), Collections.emptySet()),
+                new WaitCommand(2000),
                 new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator,70),
                 new WaitCommand(2000),
                 new ScoringArmSetState(ScoringArm.State.SCORING),
@@ -96,7 +97,7 @@ public class CloseRed extends MMOpMode {
                 new ScoringArmSetState(ScoringArm.State.IN),
                 new WaitCommand(2000),
                 new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator,0)
-                );
+        );
 
     }
 }
