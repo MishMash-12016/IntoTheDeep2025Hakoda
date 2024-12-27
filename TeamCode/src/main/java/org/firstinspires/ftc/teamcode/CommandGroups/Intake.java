@@ -20,8 +20,7 @@ public class Intake extends ParallelDeadlineGroup {
     public Intake(Trigger trigger) {
         super(
                 new LinearIntakeCommand(trigger),
-                new IntakeArmSetState(IntakeArm.State.COLLECT),
-                new IntakeClawSetState(IntakeClaw.State.CLOSE)
+                new IntakeArmSetState(IntakeArm.State.COLLECT)
         );
     }
 
@@ -29,6 +28,7 @@ public class Intake extends ParallelDeadlineGroup {
     public void end(boolean interrupted) {
         super.end(interrupted);
         CommandScheduler.getInstance().schedule(
+                new IntakeClawSetState(IntakeClaw.State.CLOSE),
                 new IntakeArmSetState(IntakeArm.State.IN),
                 new LinearIntakeSetPosition(0)
         );
