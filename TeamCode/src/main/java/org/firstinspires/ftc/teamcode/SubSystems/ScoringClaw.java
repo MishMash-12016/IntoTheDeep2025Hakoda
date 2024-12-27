@@ -10,7 +10,7 @@ public class ScoringClaw extends SubsystemBase {
 
     public enum State {
         CLOSE(1), OPEN(0.5);
-        public double position;
+        public final double position;
 
         State(double position){
             this.position = position;

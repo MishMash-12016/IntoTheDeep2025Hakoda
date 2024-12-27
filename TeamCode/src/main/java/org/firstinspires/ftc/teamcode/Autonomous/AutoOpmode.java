@@ -33,13 +33,13 @@ public class AutoOpmode extends MMOpMode {
 
         drive.setDrivePowers(new PoseVelocity2d(new Vector2d(1,0),0));
 
-//        Command test = new ActionCommand( drive.actionBuilder(initialPose)
-//                .lineToX(1000).build(), Collections.emptySet());
-//        schedule(
-//                new SequentialCommandGroup(
-//                        test
-//                )
-//        );
+        Command test = new ActionCommand( drive.actionBuilder(initialPose)
+                .lineToX(1000).build(), Collections.emptySet());
+        schedule(
+                new SequentialCommandGroup(
+
+                )
+        );
     }
 }
 
