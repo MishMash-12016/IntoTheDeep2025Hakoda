@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.SubSystems;
 
+import com.arcrobotics.ftclib.command.Command;
+import com.arcrobotics.ftclib.command.InstantCommand;
 import com.arcrobotics.ftclib.command.SubsystemBase;
 
 import org.firstinspires.ftc.teamcode.Libraries.CuttlefishFTCBridge.src.devices.CuttleServo;
@@ -16,12 +18,15 @@ public class IntakeClaw extends SubsystemBase {
             this.position = position;
         }
     }
+    public static final double angleintake = 0;
+    public static final double angleintakeright = 0.4;
+    public static final double angleintakeleft = 0.2;
 
-    public CuttleServo angleClaw;
+    public CuttleServo angleIntake;
     public CuttleServo claw;
 
     public IntakeClaw(){
-        angleClaw = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_INTAKE_CLAW);
+        angleIntake = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_INTAKE_CLAW);
         claw = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub,Configuration.INTAKE_CLAW);
     }
 
@@ -29,14 +34,14 @@ public class IntakeClaw extends SubsystemBase {
         claw.setPosition(position);
     }
 
-    public void setAngle(double angle){angleClaw.setPosition(angle);}
+    public Command setAnglePosition(double anglepose){
+        return new InstantCommand( ()-> {
+                angleIntake.setPosition(anglepose);},
+            this);
 
-    public double getClawPosition() {
-        return claw.getPosition();
     }
-
     public double getAnglePosition() {
-        return angleClaw.getPosition();
+        return angleIntake.getPosition();
     }
 
 }

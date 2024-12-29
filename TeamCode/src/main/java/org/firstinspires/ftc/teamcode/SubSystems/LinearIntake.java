@@ -10,6 +10,7 @@ public class LinearIntake extends SubsystemBase {
 
     CuttleServo rightServo;
     CuttleServo leftServo;
+    public static double closedpose = 0;
 
     public LinearIntake(){
         rightServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.LINEAR_INTAKE_RIGHT);

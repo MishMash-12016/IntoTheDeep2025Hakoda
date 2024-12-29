@@ -35,6 +35,8 @@ public class Configuration {
 
     public static final int ANGLE_INTAKE_CLAW = 0;
     public static final int INTAKE_CLAW = 3;
+    public static final int INTAKEARM_LEFT= 5;
+    public static final int INTAKEARM_RIGHT= 4;
 
     public static final int SCORING_CLAW = 2;
     public static final int ANGLE_SCORING_CLAW = 2;

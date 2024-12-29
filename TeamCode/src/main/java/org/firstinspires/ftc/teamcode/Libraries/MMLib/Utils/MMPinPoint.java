@@ -45,7 +45,8 @@ import java.util.Arrays;
         description ="goBILDA® Pinpoint Odometry Computer (IMU Sensor Fusion for 2 Wheel Odometry)"
 )
 
-public class MMPinPoint extends I2cDeviceSynchDevice<I2cDeviceSynchSimple> {
+public class
+ MMPinPoint extends I2cDeviceSynchDevice<I2cDeviceSynchSimple> {
 
     private int deviceStatus   = 0;
     private int loopTime       = 0;

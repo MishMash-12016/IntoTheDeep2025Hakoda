@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.SubSystems;
 
+import com.arcrobotics.ftclib.command.Command;
+import com.arcrobotics.ftclib.command.InstantCommand;
 import com.arcrobotics.ftclib.command.SubsystemBase;
 
 import org.firstinspires.ftc.teamcode.Libraries.CuttlefishFTCBridge.src.devices.CuttleServo;
@@ -7,30 +9,30 @@ import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.Utils.Configuration;
 
 public class IntakeArm extends SubsystemBase {
-    public enum State {
-        IN(0), COLLECT(1);
-        public double position;
 
-        State(double position) {
-            this.position = position;
-        }
-    }
+    CuttleServo intakeArmRight;
+    CuttleServo intakeArmLeft;
+    public static final double PREPAREINTAKE = 0.45;
+    public static final double COLLECT = 0.33;
+    public static final double IN = 1 ;
 
-    CuttleServo rightServo;
-    CuttleServo leftServo;
 
     public IntakeArm() {
-        rightServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKE_CLAW);
-        leftServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_INTAKE_CLAW);
+        intakeArmRight = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKEARM_RIGHT);
+        intakeArmLeft = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKEARM_LEFT);
     }
 
-    public void setState(double position) {
-        rightServo.setPosition(position);
-        leftServo.setPosition(1-position);
+    public Command setState(double position) {
+        return new InstantCommand(() -> {
+            intakeArmRight.setPosition(position);
+            intakeArmLeft.setPosition(1 - position);
+        },
+                this);
     }
 
-    public double getPosition() {
-        return rightServo.getPosition();
-    }
 
-}
+        public double getPosition () {
+            return intakeArmRight.getPosition();
+        }
+
+    }

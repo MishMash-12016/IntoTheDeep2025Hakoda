@@ -2,11 +2,14 @@ package org.firstinspires.ftc.teamcode.SubSystems;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
+import com.arcrobotics.ftclib.command.Command;
+import com.arcrobotics.ftclib.command.InstantCommand;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.roboctopi.cuttlefish.utils.Direction;
 
 import org.firstinspires.ftc.teamcode.Libraries.CuttlefishFTCBridge.src.devices.CuttleEncoder;
 import org.firstinspires.ftc.teamcode.Libraries.CuttlefishFTCBridge.src.devices.CuttleMotor;
+import org.firstinspires.ftc.teamcode.Libraries.MMLib.PID.MMPIDCommand;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.PID.MMPIDSubsystem;
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.Utils.Configuration;
@@ -31,6 +34,14 @@ public class Elevator extends MMPIDSubsystem {
     public static double TOLERANCE = 0;
 
     double ticksOfset = 0;
+    public static final double targetPose=0;
+    public static final double elevatorDown=0;
+    public static final double specimenIntake=0;
+    public static final double specimenHIGH=0;
+    public static final double HIGH_Basket= 45;
+    public static final double Low_Basket= 25;
+
+
 
 
 
@@ -43,6 +54,11 @@ public class Elevator extends MMPIDSubsystem {
 //        this.motorRight.setZeroPowerBehaviour(DcMotor.ZeroPowerBehavior.BRAKE);
         this.motorLeftEncoder = new CuttleEncoder(robot.mmSystems.expansionHub,Configuration.ELEVATOR_ENCODER,TICKS_PER_REV);
         resetTicks();
+    }
+    public Command moveToPose(double setPoint){
+        return new MMPIDCommand(this,setPoint).alongWith(
+                new InstantCommand(()-> targetPose=setPoint));
+
     }
 
     public double getHeight(){
