@@ -26,7 +26,7 @@ public class Elevator extends MMPIDSubsystem {
     final double LEVELS = 4;
     final double SPROCKET_PERIMETER = 6.56592;
 
-    public static double kP = 0.11;
+    public static double kP = 0.14;
     public static double kI = 0.01;
     public static double kD = 0;
     public static double TOLERANCE = 2;
@@ -36,8 +36,8 @@ public class Elevator extends MMPIDSubsystem {
     public static final double elevatorDown=0;
     public static final double specimenIntake=0;
     public static final double specimenHIGH=0;
-    public static final double HIGH_Basket= 45;
-    public static final double Low_Basket= 10;
+    public static final double HIGH_Basket= 67.69;
+    public static final double Low_Basket= 30;
 
 
 
@@ -59,7 +59,7 @@ public class Elevator extends MMPIDSubsystem {
     }
 
     public double getHeight(){
-        return -1*((getTicks() / TICKS_PER_REV) * SPROCKET_PERIMETER * LEVELS / GEAR_RATIO) ;
+        return((getTicks() / TICKS_PER_REV) * SPROCKET_PERIMETER * LEVELS / GEAR_RATIO) ;
     }
 
     @Override
@@ -68,7 +68,7 @@ public class Elevator extends MMPIDSubsystem {
     }
 
     public double getTicks() {
-        return -1* motorLeftEncoder.getCounts() + ticksOfset;
+        return motorLeftEncoder.getCounts() + ticksOfset;
     }
     public void setTicks(double newTicks) {
 

@@ -21,14 +21,14 @@ public class MMIMU {
     /**
      * here u can define the orientation of the control hub, in respect to the robot.
      */
+
     public MMIMU(HardwareMap hardwareMap) {
-        imu = hardwareMap.get(BHI260IMU.class, Configuration.IMU);
         BHI260IMU.Parameters imuParameters = new IMU.Parameters(
                 new RevHubOrientationOnRobot(
                         RevHubOrientationOnRobot.LogoFacingDirection.RIGHT, //right here!
                         RevHubOrientationOnRobot.UsbFacingDirection.UP //and here!
-                )
-        );
+                ));
+        imu = hardwareMap.get(BHI260IMU.class, Configuration.IMU);
         imu.initialize(imuParameters);
     }
 
@@ -52,6 +52,8 @@ public class MMIMU {
      * reset the yaw of the robot (reset field oriented drive)
      */
     public void resetYaw() {
+//        imu.close();
+//        imu.initialize(imuParameters);
         setYaw(0);
     }
 

@@ -38,16 +38,19 @@ public class Configuration {
     public static final int INTAKEARM_LEFT= 5;
     public static final int INTAKEARM_RIGHT= 4;
 
-    public static final int SCORING_CLAW = 2;
-    public static final int ANGLE_SCORING_CLAW = 2;
+    public static final int SCORING_CLAW = 0;
 
-    public static final int LINEAR_INTAKE_RIGHT = 2;
+    public static final int ANGLE_SCORING_CLAW = 1;
+
+    public static final int LINEAR_INTAKE_RIGHT = 1;
     public static final int LINEAR_INTAKE_LEFT = 2;
 
     /**EXPANSION_HUB*/
     public static final int ELEVATOR_1 = 0;
     public static final int ELEVATOR_2 = 1;
     public static final int ELEVATOR_3 = 2;
+    public static final int SCORING_ARM_RIGHT = 4;
+    public static final int SCORING_ARM_LEFT = 5;
 
     /**From here irrelevant(example)*/
 

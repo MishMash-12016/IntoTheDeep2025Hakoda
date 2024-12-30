@@ -70,6 +70,9 @@ public class GeneralTeleOp extends MMOpMode {
         Trigger dpaddown2 = new Trigger(
                 () -> MMRobot.getInstance().mmSystems.gamepadEx2.getButton(GamepadKeys.Button.DPAD_DOWN)
         );
+        Trigger dpadleft2 = new Trigger(
+                () -> MMRobot.getInstance().mmSystems.gamepadEx2.getButton(GamepadKeys.Button.DPAD_LEFT)
+        );
         Trigger aButton2 = new Trigger(
                 () -> MMRobot.getInstance().mmSystems.gamepadEx2.getButton(GamepadKeys.Button.A)
         );
@@ -85,12 +88,15 @@ public class GeneralTeleOp extends MMOpMode {
 //        intakeCondition.whenActive(
 //                IntakeCommand.IntakeCommand() // button x
 //        );
+        dpadleft.whenActive(
+            MMRobot.getInstance().mmSystems.linearIntake.settestPosition()
+        );
 //        ybutton.whenActive(
 //                ScoringCommand.PrepareHighSampleCommand()
 //        );
-        abutton.whenActive(
-                ScoringCommand.PrepareLowSampleCommand()
-       );
+//        abutton.whenActive(
+//                ScoringCommand.PrepareLowSampleCommand()
+//       );
 //        bbutton.whenActive(
 //                ScoringCommand.PrepareScoreSpecimenCommand()
 //        );
@@ -112,7 +118,8 @@ public class GeneralTeleOp extends MMOpMode {
 //        rightTrigger2.whenActive(
 //                ScoringCommand.ScoreSpecimenCommand()
 //        );
-//
+//        dpadleft2.whenActive(()->
+//                MMRobot.getInstance().mmSystems.imu.resetYaw());
 
 
     }
@@ -121,7 +128,9 @@ public class GeneralTeleOp extends MMOpMode {
     public void run() {
         super.run();
         MMRobot.getInstance().mmSystems.expansionHub.pullBulkData();
-        MMRobot.getInstance().mmSystems.elevator.updateToDashboard();
+        telemetry.addData("joystick:",MMRobot.getInstance().mmSystems.gamepadEx1.getTrigger(GamepadKeys.Trigger.LEFT_TRIGGER));
+        telemetry.addData("current pose",MMRobot.getInstance().mmSystems.linearIntake.getPosition());
+        telemetry.update();
     }
 }
 

@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.Utils.Configuration;
 
 public class ScoringArm extends SubsystemBase {
     public enum State {
-        IN(0), SCORINGHIGH(1),SCORINGLOW(0.5),SCORINGSPECIMEN(1);
+        IN(0), SCORINGHIGH(0.14),SCORINGLOW(0.1),SCORINGSPECIMEN(0.2);
         public double position;
 
         State(double position) {
@@ -20,8 +20,8 @@ public class ScoringArm extends SubsystemBase {
     CuttleServo leftServo;
 
     public ScoringArm() {
-        rightServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.INTAKE_CLAW);
-        leftServo = new CuttleServo(MMRobot.getInstance().mmSystems.controlHub, Configuration.ANGLE_INTAKE_CLAW);
+        rightServo = new CuttleServo(MMRobot.getInstance().mmSystems.expansionHub, Configuration.SCORING_ARM_RIGHT);
+        leftServo = new CuttleServo(MMRobot.getInstance().mmSystems.expansionHub, Configuration.SCORING_ARM_LEFT);
     }
 
     public void setState(double position) {

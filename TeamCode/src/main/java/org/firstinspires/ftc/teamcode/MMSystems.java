@@ -91,6 +91,7 @@ public class MMSystems {
 
     public void initElevator(){
         elevator = new Elevator();
+        MMRobot.getInstance().mmSystems.elevator.resetTicks();
     }
 
     public void initShooterPID() {

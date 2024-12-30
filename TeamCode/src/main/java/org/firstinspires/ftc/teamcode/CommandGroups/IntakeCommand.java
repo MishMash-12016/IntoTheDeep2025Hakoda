@@ -35,19 +35,22 @@ public class IntakeCommand extends SequentialCommandGroup {
                 new WaitCommand(500),
                 new LinearIntakeSetPosition(LinearIntake.closedpose),
                 new IntakeRotatorSetState(IntakeClaw.anglesampletransfer),
-                MMRobot.getInstance().mmSystems.intakeArm.setState(IntakeArm.transferPose)
+                MMRobot.getInstance().mmSystems.intakeArm.setState(IntakeArm.transferPose),
+                TransferCommand()
                 );
     }
     public static Command TransferCommand(){
         return new SequentialCommandGroup(
                 MMRobot.getInstance().mmSystems.intakeArm.setState(IntakeArm.transferPose),
                 new WaitCommand(200),
+                new ScoringClawSetState(ScoringClaw.State.OPEN),
+                new WaitCommand(300),
+                new ScoringArmSetState(ScoringArm.State.IN),
                 new LinearIntakeSetPosition(LinearIntake.closedpose),
                 MMRobot.getInstance().mmSystems.elevator.moveToPose(Elevator.elevatorDown),
-                new ScoringArmSetState(ScoringArm.State.IN),
-                new ScoringClawSetState(ScoringClaw.State.OPEN),
-                new WaitCommand(200),
+                new WaitCommand(300),
                 new ScoringClawSetState(ScoringClaw.State.CLOSE),
+                new WaitCommand(300),
                 new IntakeClawSetState(IntakeClaw.State.OPEN)
         );
     }
@@ -63,7 +66,9 @@ public class IntakeCommand extends SequentialCommandGroup {
                 new IntakeClawSetState(IntakeClaw.State.CLOSE),
                 new WaitCommand(500),
                 MMRobot.getInstance().mmSystems.intakeClaw.setAnglePosition(IntakeClaw.anglespecimantransfer),
-                MMRobot.getInstance().mmSystems.intakeArm.setState(IntakeArm.transferPose)
+                MMRobot.getInstance().mmSystems.intakeArm.setState(IntakeArm.transferPose),
+                TransferCommand()
         );
     }
+
 }

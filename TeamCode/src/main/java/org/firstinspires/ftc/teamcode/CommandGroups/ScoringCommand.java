@@ -10,18 +10,21 @@ import org.firstinspires.ftc.teamcode.Commands.ScoringClawSetState;
 import org.firstinspires.ftc.teamcode.Libraries.MMLib.PID.MMPIDCommand;
 import org.firstinspires.ftc.teamcode.MMRobot;
 import org.firstinspires.ftc.teamcode.SubSystems.Elevator;
+import org.firstinspires.ftc.teamcode.SubSystems.IntakeArm;
 import org.firstinspires.ftc.teamcode.SubSystems.ScoringArm;
 import org.firstinspires.ftc.teamcode.SubSystems.ScoringClaw;
 
 public class ScoringCommand extends SequentialCommandGroup {
     public static Command PrepareHighSampleCommand(){
         return new SequentialCommandGroup(
-        MMRobot.getInstance().mmSystems.elevator.moveToPose(Elevator.HIGH_Basket),
-        new ScoringArmSetState(ScoringArm.State.SCORINGHIGH)
+            MMRobot.getInstance().mmSystems.intakeArm.setState(IntakeArm.midtransferpose),
+            MMRobot.getInstance().mmSystems.elevator.moveToPose(Elevator.HIGH_Basket),
+            new ScoringArmSetState(ScoringArm.State.SCORINGHIGH)
         );
     }
     public static Command PrepareLowSampleCommand() {
         return new SequentialCommandGroup(
+                MMRobot.getInstance().mmSystems.intakeArm.setState(IntakeArm.midtransferpose),
                 new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator, Elevator.Low_Basket),
                 new ScoringArmSetState(ScoringArm.State.SCORINGLOW)
         );
