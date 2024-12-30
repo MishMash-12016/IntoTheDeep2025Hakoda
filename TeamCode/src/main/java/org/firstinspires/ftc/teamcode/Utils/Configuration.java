@@ -45,14 +45,14 @@ public class Configuration {
     public static final int LINEAR_INTAKE_LEFT = 2;
 
     /**EXPANSION_HUB*/
-    public static final int ELEVATOR_RIGHT = 8;
-    public static final int ELEVATOR_LEFT = 8;
-
+    public static final int ELEVATOR_1 = 0;
+    public static final int ELEVATOR_2 = 1;
+    public static final int ELEVATOR_3 = 2;
 
     /**From here irrelevant(example)*/
 
 
-    public static final int ELEVATOR_ENCODER = ELEVATOR_LEFT;
+    public static final int ELEVATOR_ENCODER = ELEVATOR_3;
     public static final int SHOOTER1 = 0;
     public static final int SHOOTER2 = 1;
     public static final int SHOOTER_INTAKE = 2;

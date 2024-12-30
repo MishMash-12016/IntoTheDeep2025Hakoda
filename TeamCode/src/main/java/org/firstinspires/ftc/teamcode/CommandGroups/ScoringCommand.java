@@ -15,33 +15,32 @@ import org.firstinspires.ftc.teamcode.SubSystems.ScoringClaw;
 
 public class ScoringCommand extends SequentialCommandGroup {
     public static Command PrepareHighSampleCommand(){
-        return new ParallelCommandGroup(
+        return new SequentialCommandGroup(
         MMRobot.getInstance().mmSystems.elevator.moveToPose(Elevator.HIGH_Basket),
         new ScoringArmSetState(ScoringArm.State.SCORINGHIGH)
         );
     }
     public static Command PrepareLowSampleCommand() {
-        return new ParallelCommandGroup(
-                MMRobot.getInstance().mmSystems.elevator.moveToPose(Elevator.Low_Basket),
+        return new SequentialCommandGroup(
+                new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator, Elevator.Low_Basket),
                 new ScoringArmSetState(ScoringArm.State.SCORINGLOW)
         );
     }
     public static Command ScoreSampleCommand(){
-        return new ParallelCommandGroup(
+        return new SequentialCommandGroup(
                 new ScoringClawSetState(ScoringClaw.State.OPEN),
                 new ScoringArmSetState(ScoringArm.State.IN),
                 new WaitCommand(400),
-                MMRobot.getInstance().mmSystems.elevator.moveToPose(Elevator.elevatorDown)
+                new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator,Elevator.elevatorDown)
         );
     }
     public static Command PrepareScoreSpecimenCommand(){
-        return new ParallelCommandGroup(
-                MMRobot.getInstance().mmSystems.elevator.moveToPose(Elevator.specimenHIGH),
+        return new SequentialCommandGroup(
+                new MMPIDCommand(MMRobot.getInstance().mmSystems.elevator, Elevator.specimenHIGH),
                 new ScoringArmSetState(ScoringArm.State.SCORINGSPECIMEN))
     ;}
     public static Command ScoreSpecimenCommand(){
-        return new ParallelCommandGroup(
-                MMRobot.getInstance().mmSystems.elevator.moveToPose(Elevator.specimenHIGH-3),
+        return new SequentialCommandGroup(
                 new WaitCommand(200),
                 new ScoringClawSetState(ScoringClaw.State.OPEN),
                 new ScoringArmSetState(ScoringArm.State.IN),

@@ -108,7 +108,7 @@ public class CuttleRevHub extends LynxCommExceptionHandler implements RobotArmin
             revHub = hardwareMap.get(LynxModule.class,"Control Hub");
             break;
          case EXPANSION_HUB:
-            revHub = hardwareMap.get(LynxModule.class,"Expansion Hub");
+            revHub = hardwareMap.get(LynxModule.class,"Expansion Hub ");
             break;
       }
       bulkData = new CuttleRevBulkData();

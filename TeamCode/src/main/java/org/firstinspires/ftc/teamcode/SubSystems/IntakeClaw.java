@@ -19,7 +19,11 @@ public class IntakeClaw extends SubsystemBase {
         }
     }
     public static final double angleintake = 0;
-    public static final double angleintakeright = 0.4;
+    public static final double anglespecimantransfer = 0;
+    public static final double anglesampletransfer = 0.5;
+    public static final double angleintakeSpeciman = 0.5;
+
+    public static final double angleintakeright = 0.8; //
     public static final double angleintakeleft = 0.2;
 
     public CuttleServo angleIntake;

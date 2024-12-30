@@ -26,8 +26,8 @@ public class ExampleElevator extends MMPIDSubsystem {
 
     public ExampleElevator() {
         super(kP, kI, kD, tolerance);
-        motorLeft = new CuttleMotor(MMRobot.getInstance().mmSystems.expansionHub, Configuration.ELEVATOR_LEFT);
-        motorRight = new CuttleMotor(MMRobot.getInstance().mmSystems.expansionHub, Configuration.ELEVATOR_RIGHT);
+        motorLeft = new CuttleMotor(MMRobot.getInstance().mmSystems.expansionHub, Configuration.ELEVATOR_2);
+        motorRight = new CuttleMotor(MMRobot.getInstance().mmSystems.expansionHub, Configuration.ELEVATOR_1);
         encoder = new CuttleEncoder(MMRobot.getInstance().mmSystems.expansionHub, Configuration.ELEVATOR_ENCODER, TICKS_PER_REV);
     }
 

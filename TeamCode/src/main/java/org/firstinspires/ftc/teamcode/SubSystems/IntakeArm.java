@@ -12,9 +12,10 @@ public class IntakeArm extends SubsystemBase {
 
     CuttleServo intakeArmRight;
     CuttleServo intakeArmLeft;
-    public static final double PREPAREINTAKE = 0.45;
-    public static final double COLLECT = 0.33;
-    public static final double IN = 1 ;
+    public static final double prepareSampleIntakePose = 0.45;
+    public static final double intakeSamplePose = 0.33;
+    public static final double intakeSpecimenPose = 0.63; //not checked
+    public static final double transferPose = 1 ;
 
 
     public IntakeArm() {

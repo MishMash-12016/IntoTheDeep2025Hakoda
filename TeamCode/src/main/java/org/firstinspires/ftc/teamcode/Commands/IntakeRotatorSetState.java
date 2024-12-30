@@ -6,10 +6,7 @@ import com.arcrobotics.ftclib.command.InstantCommand;
 import org.firstinspires.ftc.teamcode.MMRobot;
 
 public class IntakeRotatorSetState extends InstantCommand {
-    public IntakeRotatorSetState(double angleintake) {
-    }
-
-    public static Command IntakeRotatorSetState(double state){
-           return MMRobot.getInstance().mmSystems.intakeClaw.setAnglePosition(state);
+    public IntakeRotatorSetState(double angleintake){
+        super(()-> MMRobot.getInstance().mmSystems.intakeClaw.setAnglePosition(angleintake));
         }
 }
