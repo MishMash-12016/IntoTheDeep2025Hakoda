@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Teleops;
 
+import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.arcrobotics.ftclib.command.button.Trigger;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.arcrobotics.ftclib.gamepad.GamepadKeys;
@@ -46,6 +47,9 @@ public class TuningOpMode extends MMOpMode {
     @Override
     public void run() {
         super.run();
+
+        telemetry.addData("Meow",MMRobot.getInstance().mmSystems.scoringClaw.getAnglePosition());
+
         MMRobot.getInstance().mmSystems.expansionHub.pullBulkData();
         MMRobot.getInstance().mmSystems.elevator.updateToDashboard();
 
